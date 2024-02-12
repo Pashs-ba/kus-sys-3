@@ -2,9 +2,9 @@ import { Routes, Route } from "react-router-dom"
 import App from "../App"
 import Homepage from "../pages/Homepage"
 import Tester from "./Tester";
-import Login from "../pages/Login";
-import Registration from "../pages/Registration";
-import RegistartionSuccess from "../pages/RegistartionSuccess";
+import Login from "../pages/auth/Login";
+import Registration from "../pages/auth/Registration";
+import RegistartionSuccess from "../pages/auth/RegistartionSuccess";
 
 function isAuthenticated(): boolean {
     const user: string = JSON.parse(localStorage.getItem("user") as string);

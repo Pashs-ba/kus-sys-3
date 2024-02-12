@@ -1,7 +1,7 @@
 import { Form } from "pashs-form-generator"
-import "../styles/Login.css"
-import { LoginUser } from "../api/common"
-import CardBody from "../components/CardBody"
+import "../../styles/Login.css"
+import { LoginUser } from "../../api/common"
+import CardBody from "../../components/CardBody"
 export type LoginProps = {}
 
 export default function Login() {

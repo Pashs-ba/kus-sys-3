@@ -1,8 +1,8 @@
 import { Form } from "pashs-form-generator"
-import CardBody from "../components/CardBody"
+import CardBody from "../../components/CardBody"
 import { useState } from "react"
-import Alert from "../components/Alert"
-import { Register } from "../api/common"
+import Alert from "../../components/Alert"
+import { Register } from "../../api/common"
 import { useNavigate } from "react-router-dom"
 
 export type RegistrationProps = {}
