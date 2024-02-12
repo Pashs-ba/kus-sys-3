@@ -1,7 +1,7 @@
 import { API_BASE_URL } from "../config";
-import { User } from "../types/common";
+import { Optional, User } from "../types/common";
 
-export async function LoginUser(user: User): Promise<boolean> {
+export async function LoginUser(login: string, password: string): Promise<Optional<User>>   {
     // const response = await fetch("http://localhost:8000/login", {
     //     method: "POST",
     //     headers: {
@@ -10,27 +10,37 @@ export async function LoginUser(user: User): Promise<boolean> {
     //     body: JSON.stringify(user)
     // })
 
-    console.log(user)
-    return true
-} 
+    console.log(login, password)
+    return {
+        isGood: true,
+        value: {
+            username: "some",
+            role: "tester",
+            token: "Aboba"
+        }
+    }
+}
 
 export async function Register(
     login: string,
     password: string,
     email: string
-    ): Promise<boolean> {
-        // const response = await fetch(`${API_BASE_URL}/registration`, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         login,
-        //         password,
-        //         email
-        //     })
-        // })
-        // response.status
-        
-    return true
+): Promise<Optional<boolean>> {
+    // const response = await fetch(`${API_BASE_URL}/registration`, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         login,
+    //         password,
+    //         email
+    //     })
+    // })
+    // response.status
+
+    return {
+        isGood: true,
+        value: true
+    }
 }

@@ -1,4 +1,11 @@
 export type User = {
     username: string,
-    password: string
+    role: string,
+    token: string
+}
+
+export type Optional<T> = {
+    isGood: boolean,
+    reason?: string,
+    value: T
 }

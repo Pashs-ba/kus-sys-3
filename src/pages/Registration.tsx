@@ -3,7 +3,7 @@ import CardBody from "../components/CardBody"
 import { useState } from "react"
 import Alert from "../components/Alert"
 import { Register } from "../api/common"
-import { redirect, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export type RegistrationProps = {}
 
@@ -95,10 +95,10 @@ export default function Registration() {
                         }
                         setShowBadPassword(false)
                         Register(data.login, data.password, data.email).then(res => {
-                            if (res) {
+                            if (res.isGood) {
                                 return navigate('/reg-success')
                             } else {
-                                setApiError("TODO ERROR") //TODO ERROR
+                                setApiError(res.reason ?? "Some error") //TODO ERROR
                             }
                         })
                     }} />

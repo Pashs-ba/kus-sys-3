@@ -31,9 +31,9 @@ export default function Login() {
                         },
                     ]}
                     onButtonClick={(data) => {
-                        LoginUser(data).then((result) => {
-                            if (result) {
-                                localStorage.setItem("user", JSON.stringify(data))
+                        LoginUser(data.login, data.password).then((result) => {
+                            if (result.isGood) {
+                                localStorage.setItem("user", JSON.stringify(result))
                             }
                         })
                     }}
