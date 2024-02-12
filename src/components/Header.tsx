@@ -1,3 +1,5 @@
+import ChangeThemeButton from "./ChangeThemeButton"
+
 export type HeaderProps = {}
 
 export default function Header() {
@@ -11,6 +13,7 @@ export default function Header() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         </ul>
+                        <ChangeThemeButton/>
                     </div>
                 </div>
             </nav>
