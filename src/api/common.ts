@@ -24,23 +24,24 @@ export async function LoginUser(login: string, password: string): Promise<Option
 export async function Register(
     login: string,
     password: string,
-    email: string
+    email: string,
+    key: string
 ): Promise<Optional<boolean>> {
-    // const response = await fetch(`${API_BASE_URL}/registration`, {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify({
-    //         login,
-    //         password,
-    //         email
-    //     })
-    // })
-    // response.status
+    const response = await fetch(`${API_BASE_URL}/registration`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            login,
+            password,
+            email,
+            key
+        })
+    })
 
     return {
-        isGood: true,
-        value: true
+        isGood: response.ok,
+        value: response.ok
     }
 }

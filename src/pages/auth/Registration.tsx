@@ -3,7 +3,7 @@ import CardBody from "../../components/CardBody"
 import { useState } from "react"
 import Alert from "../../components/Alert"
 import { Register } from "../../api/common"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export type RegistrationProps = {}
 
@@ -24,11 +24,14 @@ export default function Registration() {
                     ) : null
                 }
                 {
-                    apiError ? (
+                    apiError.length > 0 ? (
                         <div className="mb-3">
                             <Alert
-                                text={apiError}
-                                type={"danger"} />
+                                text={""}
+                                type={"danger"} >
+                                <p>Произошла ошибка при регистрации</p>
+                                <Link to="/why-bad">Почему это произошло</Link>
+                                </Alert>
                         </div>
                     ) : null
                 }
@@ -45,15 +48,8 @@ export default function Registration() {
                             }
                         },
                         {
-                            label: "Имя",
-                            name: "name",
-                            type: 'input',
-                            required: true,
-                            properties: {}
-                        },
-                        {
-                            label: "Фамилия",
-                            name: "surname",
+                            label: "Логин",
+                            name: "login",
                             type: 'input',
                             required: true,
                             properties: {}
@@ -77,6 +73,24 @@ export default function Registration() {
                             }
                         },
                         {
+                            label: "Выберите олимпиаду",
+                            name: "key",
+                            required: true,
+                            type: "select",
+                            properties: {
+                                options: [
+                                    {
+                                        value: "info",
+                                        label: "Информатика"
+                                    },
+                                    {
+                                        value: "prog",
+                                        label: "Программирование"
+                                    },
+                                ]
+                            }
+                        },
+                        {
                             label: "Я согласен на обработку персональных данных",
                             name: "agree",
                             type: 'checkbox',
@@ -94,11 +108,11 @@ export default function Registration() {
                             return;
                         }
                         setShowBadPassword(false)
-                        Register(data.login, data.password, data.email).then(res => {
+                        Register(data.login, data.password, data.email, data.key).then(res => {
                             if (res.isGood) {
                                 return navigate('/reg-success')
                             } else {
-                                setApiError(res.reason ?? "Some error") //TODO ERROR
+                                setApiError(res.reason ?? "Произошла ошибка при вводе логина")
                             }
                         })
                     }} />

@@ -2,8 +2,7 @@ import { Form } from "pashs-form-generator"
 import "../../styles/Login.css"
 import { LoginUser } from "../../api/common"
 import CardBody from "../../components/CardBody"
-export type LoginProps = {}
-
+export type LoginProps = {} 
 export default function Login() {
     return (
         <div className="full-height d-flex justify-content-center align-items-center">
