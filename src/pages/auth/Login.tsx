@@ -2,11 +2,18 @@ import { Form } from "pashs-form-generator"
 import "../../styles/Login.css"
 import { LoginUser } from "../../api/common"
 import CardBody from "../../components/CardBody"
-export type LoginProps = {} 
+import Alert from "../../components/Alert"
+import { useState } from "react"
+export type LoginProps = {}
 export default function Login() {
+    const [badLogin, setBadLogin] = useState(false)
     return (
         <div className="full-height d-flex justify-content-center align-items-center">
             <CardBody>
+                {
+                    badLogin ? <Alert type="danger" text="Неправильный логин или пароль" /> : null
+                }
+
                 <Form
                     title="Вход"
                     buttonText={"Войти"}
@@ -33,8 +40,12 @@ export default function Login() {
                         LoginUser(data.login, data.password).then((result) => {
                             if (result.isGood) {
                                 localStorage.setItem("user", JSON.stringify(result))
+                                window.location.href = "/"
+                            }else{
+                                setBadLogin(true)
                             }
                         })
+                        
                     }}
                 />
                 <p className="text-secondary mt-3">

@@ -1,23 +1,28 @@
 import { API_BASE_URL } from "../config";
 import { Optional, User } from "../types/common";
 
-export async function LoginUser(login: string, password: string): Promise<Optional<User>>   {
-    // const response = await fetch("http://localhost:8000/login", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(user)
-    // })
+export async function LoginUser(login: string, password: string): Promise<Optional<User>> {
+    const response = await fetch(`${API_BASE_URL}/login`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            login,
+            password
+        })
+    })
 
-    console.log(login, password)
+    if (!response.ok) {
+        return {
+            isGood: false,
+            reason: "Invalid login or password",
+            value: {} as User
+        }
+    }
     return {
         isGood: true,
-        value: {
-            username: "some",
-            role: "tester",
-            token: "Aboba"
-        }
+        value: (await response.json()).user
     }
 }
 

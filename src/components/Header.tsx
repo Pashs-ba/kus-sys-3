@@ -1,4 +1,5 @@
 import ChangeThemeButton from "./ChangeThemeButton"
+import LogoutButton from "./LogoutButton"
 
 export type HeaderProps = {}
 
@@ -13,6 +14,7 @@ export default function Header() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         </ul>
+                        <LogoutButton/>
                         <ChangeThemeButton/>
                     </div>
                 </div>
