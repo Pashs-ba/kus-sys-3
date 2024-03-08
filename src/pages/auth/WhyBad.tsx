@@ -1,4 +1,4 @@
-import CardBody from "../../components/CardBody"
+import CardBody from "../../components/common/CardBody"
 
 export type WhyBadProps = {}
 

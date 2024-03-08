@@ -1,4 +1,4 @@
-import Alert from "../../components/Alert"
+import Alert from "../../components/common/Alert"
 
 export type RegistartionSuccessProps = {}
 

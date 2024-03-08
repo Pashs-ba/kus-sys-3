@@ -1,7 +1,7 @@
 import { Form } from "pashs-form-generator"
-import CardBody from "../../components/CardBody"
+import CardBody from "../../components/common/CardBody"
 import { useState } from "react"
-import Alert from "../../components/Alert"
+import Alert from "../../components/common/Alert"
 import { Register } from "../../api/common"
 import { Link, useNavigate } from "react-router-dom"
 

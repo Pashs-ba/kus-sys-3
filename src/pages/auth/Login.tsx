@@ -1,8 +1,8 @@
 import { Form } from "pashs-form-generator"
 import "../../styles/Login.css"
 import { LoginUser } from "../../api/common"
-import CardBody from "../../components/CardBody"
-import Alert from "../../components/Alert"
+import CardBody from "../../components/common/CardBody"
+import Alert from "../../components/common/Alert"
 import { useState } from "react"
 export type LoginProps = {}
 export default function Login() {
