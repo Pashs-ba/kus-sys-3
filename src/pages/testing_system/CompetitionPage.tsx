@@ -17,19 +17,29 @@ export default function CompetitionPage() {
         })
     }, [])
     return (
-        <div>
-            <h1>{competition.name}</h1>
-            <div>
-                {
-                    shortQuestions.map(el => {
-                        return (
-                            <div key={el.question_id}>
-                                <p>{el.name}</p>
-                            </div>
-                        )
-                    })
-                }
+        <div className="container-fluid">
+            <div className="row p-4 full-height">
+                <div className="col-2 pe-4 border-end">
+                    <div className="fs-3 pb-4 border-bottom ">{competition.name}</div>
+                    <div className="pt-4"
+                    style={{
+                        maxHeight: "50vh",
+                        overflowY: "scroll"
+                    }}>
+                        <ul className="list-group">
+                            {
+                                shortQuestions.map(el => {
+                                    return (
+                                        <li className="list-group-item" key={el.question_id}>{el.name}</li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div className="col-10">another data</div>
             </div>
         </div>
+
     )
 }
