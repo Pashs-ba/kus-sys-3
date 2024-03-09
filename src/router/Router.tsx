@@ -19,12 +19,14 @@ export default function Router() {
     const WhyBad = React.lazy(() => import("../pages/auth/WhyBad"))
     const Registration = React.lazy(() => import("../pages/auth/Registration"))
     const RegistartionSuccess = React.lazy(() => import("../pages/auth/RegistartionSuccess"))
+    const Competition = React.lazy(() => import("../pages/testing_system/CompetitionPage"))
     return (
         <Suspense fallback={<LoadingPage />}>
             <Routes>
                 <Route path="/" element={<App />} >
                     <Route element={<Tester navigate_in_fail="/login" test_function={isAuthenticated} />}>
                         <Route index element={<Homepage />} />
+                        <Route path="competition/:id" element={<Competition />} />
                     </Route>
                     <Route element={<Tester navigate_in_fail="/" test_function={() => !isAuthenticated()} />}>
                         <Route path="login" element={<Login />} />
@@ -35,7 +37,7 @@ export default function Router() {
                     </Route>
                     <Route path="*" element={<NotFoundPage />} />
                 </Route>
-                
+
             </Routes>
         </Suspense>
     )

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { Competition } from "../../types/TestingSystem"
-import { GetAllCompetitions } from "../../api/competition"
+import { Competition } from "../../../types/TestingSystem"
+import { GetAllCompetitions } from "../../../api/competition"
 import CompetitionCard from "./CompetitionCard"
 
 export type CompetitionListProps = {}

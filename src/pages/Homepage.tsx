@@ -6,7 +6,7 @@ export type HomepageProps = {}
 
 export default function Homepage() {
     const user = GetCurrentUser();
-    const CompetitionList = lazy(() => import("../components/competition/CompetitionList"))
+    const CompetitionList = lazy(() => import("../components/homepage/competition/CompetitionList"))
     return (
         <div>
             <Suspense fallback={<Loading/>}>
