@@ -1,5 +1,5 @@
 import { Form } from "pashs-form-generator"
-import "../../styles/Login.css"
+import "../../styles/main.css"
 import { LoginUser } from "../../api/common"
 import CardBody from "../../components/common/CardBody"
 import Alert from "../../components/common/Alert"
@@ -39,7 +39,7 @@ export default function Login() {
                     onButtonClick={(data) => {
                         LoginUser(data.login, data.password).then((result) => {
                             if (result.isGood) {
-                                localStorage.setItem("user", JSON.stringify(result))
+                                localStorage.setItem("user", JSON.stringify(result.value))
                                 window.location.href = "/"
                             }else{
                                 setBadLogin(true)

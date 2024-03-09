@@ -1,14 +1,23 @@
-import CardBody from "../components/common/CardBody"
+import { Suspense, lazy } from "react";
+import { GetCurrentUser } from "../utils/users"
+import Loading from "../components/common/Loading";
 
 export type HomepageProps = {}
 
 export default function Homepage() {
+    const user = GetCurrentUser();
+    const CompetitionList = lazy(() => import("../components/competition/CompetitionList"))
     return (
-        <div className="full-height d-flex justify-content-center align-items-center">
-            <CardBody>
-                <h4>Вы успешно вошли в систему!</h4>
-                <p>Скоро тут будет олимпиада</p>
-            </CardBody>
+        <div>
+            <Suspense fallback={<Loading/>}>
+                {
+                    user && user.role.includes("submitor") ?
+                        (
+                            <CompetitionList />
+                        )
+                        : null
+                }
+            </Suspense>
         </div>
     )
 }
