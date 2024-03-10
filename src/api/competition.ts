@@ -2,8 +2,8 @@ import {API_BASE_URL} from "../config";
 import {Competition} from "../types/TestingSystem";
 
 export async function GetAllCompetitions(user_id: number): Promise<Competition[]> {
-    const response = await fetch(`${API_BASE_URL}/get/if/user_competition[competition_id[id;name;start_time]]/user_id=${user_id}`)
-    return (await response.json()).user_competitions.map((el: { competition: Competition }) => {
+    const response = await fetch(`${API_BASE_URL}/get/if/competition_user[competition_id[]]/user_id=${user_id}`)
+    return (await response.json()).competition_users.map((el: { competition: Competition }) => {
         return el.competition
     })
 }

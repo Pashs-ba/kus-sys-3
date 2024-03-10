@@ -11,4 +11,9 @@ export type ShortQuestion = {
 }
 
 export type Question = {
+    id: number,
+    name: string,
+    type: string,
+    legend: string,
+    answer?: string,
 }
