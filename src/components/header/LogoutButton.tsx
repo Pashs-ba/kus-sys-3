@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export default function LogoutButton() {
-    const [show, setShow] = useState(localStorage.getItem("user") !== null)
+    const [show] = useState(localStorage.getItem("user") !== null)
     return (
         <>
             {
